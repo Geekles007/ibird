@@ -99,7 +99,7 @@ const Loader = ({}: LoaderProps) => {
       initial={'initial'}
       animate={ready ? 'closed' : 'enter'}
       className={`pointer-events-none absolute inset-0 z-50 flex h-screen w-full flex-col 
-        items-center justify-center gap-2 overflow-hidden border border-black`}
+        items-center justify-center gap-2 overflow-hidden`}
     >
       <motion.div
         variants={overlayAnimation}

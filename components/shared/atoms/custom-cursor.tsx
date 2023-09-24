@@ -71,10 +71,7 @@ const CustomCursor = ({}: CustomCursorProps) => {
 
   return (
     <>
-      <div
-        ref={cursor}
-        className='cursor flex items-center justify-center'
-      ></div>
+      <div ref={cursor} className='cursor'></div>
       <div ref={cursorFollower} className='cursor-follower' />
       <div
         ref={cursorText}
