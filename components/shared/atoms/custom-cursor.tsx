@@ -15,22 +15,22 @@ const CustomCursor = ({}: CustomCursorProps) => {
       posY = 0;
 
     document.addEventListener('mousemove', (e) => {
-      const { pageX, pageY } = e;
+      const { clientX, clientY } = e;
 
-      posX += (pageX - posX) / 3;
-      posY += (pageY - posY) / 3;
+      posX += (clientX - posX) / 3;
+      posY += (clientY - posY) / 3;
 
       gsap.to(cursor.current, {
         left: posX,
         top: posY,
       });
       gsap.to(cursorFollower.current, {
-        left: pageX - 20,
-        top: pageY - 20,
+        left: clientX - 20,
+        top: clientY - 20,
       });
       gsap.to(cursorText.current, {
-        left: pageX - 10,
-        top: pageY - 5,
+        left: clientX - 10,
+        top: clientY - 5,
       });
     });
 

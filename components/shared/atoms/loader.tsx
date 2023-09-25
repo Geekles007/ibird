@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
 
 type LoaderProps = {};
 
@@ -86,6 +87,7 @@ const overlayAnimation = {
 
 const Loader = ({}: LoaderProps) => {
   const [ready, setReady] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -93,12 +95,22 @@ const Loader = ({}: LoaderProps) => {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    if (ready) {
+      gsap.to(ref.current, {
+        pointerEvents: 'none',
+        delay: 1.5,
+      });
+    }
+  }, [ready]);
+
   return (
     <motion.div
       variants={containerAnimation}
       initial={'initial'}
+      ref={ref}
       animate={ready ? 'closed' : 'enter'}
-      className={`pointer-events-none absolute inset-0 z-50 flex h-screen w-full flex-col 
+      className={`fixed inset-0 z-50 flex h-screen w-full flex-col 
         items-center justify-center gap-2 overflow-hidden`}
     >
       <motion.div

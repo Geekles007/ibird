@@ -1,26 +1,15 @@
-'use client';
-
-import { useEffect } from 'react';
-import Link from 'next/link';
+import AgencyName from '@/components/shared/atoms/agency-name';
+import Socials from '@/components/home/organisms/socials';
+import HireUsButton from '@/components/home/molecules/hire-us-button';
+import Gallery from '@/components/home/organisms/gallery';
 
 export default function Home() {
-  useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      const locomotiveScroll = new LocomotiveScroll();
-    })();
-  }, []);
-
   return (
     <main className=''>
-      <Link
-        data-type={'link'}
-        data-cursor-text={'Home'}
-        className={'z-10 h-screen w-screen bg-primary'}
-        href={'/'}
-      >
-        Ibird design
-      </Link>
+      <AgencyName />
+      <Socials className={'fixed bottom-8 left-8 gap-8'} />
+      <HireUsButton className={'absolute bottom-8 right-8'} />
+      <Gallery className={'absolute top-10'} />
     </main>
   );
 }
