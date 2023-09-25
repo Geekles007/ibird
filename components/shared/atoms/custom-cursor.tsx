@@ -29,8 +29,8 @@ const CustomCursor = ({}: CustomCursorProps) => {
         top: clientY - 20,
       });
       gsap.to(cursorText.current, {
-        left: clientX - 10,
-        top: clientY - 5,
+        left: clientX - 15,
+        top: clientY - 15,
       });
     });
 
@@ -76,7 +76,7 @@ const CustomCursor = ({}: CustomCursorProps) => {
       <div
         ref={cursorText}
         className={
-          'pointer-events-none absolute z-[999] select-none text-sm text-white opacity-0'
+          'pointer-events-none fixed z-[999] select-none text-lg text-white opacity-0'
         }
       >
         View

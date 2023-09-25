@@ -110,7 +110,7 @@ const Loader = ({}: LoaderProps) => {
       initial={'initial'}
       ref={ref}
       animate={ready ? 'closed' : 'enter'}
-      className={`fixed inset-0 z-50 flex h-screen w-full flex-col 
+      className={`fixed inset-0 z-[500] flex h-screen w-full flex-col 
         items-center justify-center gap-2 overflow-hidden`}
     >
       <motion.div

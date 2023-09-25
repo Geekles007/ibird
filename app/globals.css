@@ -15,7 +15,7 @@ body {
 
 .cursor.active {
     opacity: 1;
-    transform: scale(12);
+    transform: scale(14);
 }
 
 .cursor.active::before {
@@ -44,4 +44,21 @@ body {
 
 section {
     height: 100vh;
+}
+
+.card:nth-child(even) {
+    @apply translate-y-[150px];
+}
+
+.list strong {
+    writing-mode: vertical-lr;
+}
+
+._image {
+    filter: blur(15px);
+    transform: scale(1.5);
+}
+
+._overlay {
+    /*clip-path: polygon(0% 0%, 0% 0%, 0% 100% , 0% 100%);*/
 }
