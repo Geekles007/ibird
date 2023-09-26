@@ -1,9 +1,9 @@
 import AgencyName from '@/components/shared/atoms/agency-name';
 import Socials from '@/components/home/organisms/socials';
-import HireUsButton from '@/components/home/molecules/hire-us-button';
 import Gallery from '@/components/home/organisms/gallery';
 import { fetchData } from '@/helpers';
 import { PER_PAGE, REVALIDATE } from '@/lib/constants';
+import ContactUs from '@/components/home/organisms/contact-us';
 
 const { DRIBBBLE_ACCESS_TOKEN } = process.env;
 
@@ -29,7 +29,7 @@ export default async function Home() {
     <main className=''>
       <AgencyName />
       <Socials className={'fixed bottom-8 left-8 z-[99] gap-8'} />
-      <HireUsButton className={'fixed bottom-8 right-8 z-[99]'} />
+      <ContactUs />
       <Gallery
         posts={posts}
         className={'absolute left-1/2 top-28 -translate-x-1/2'}

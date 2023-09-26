@@ -1,23 +1,18 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Link, { LinkProps } from 'next/link';
+import React, { AnchorHTMLAttributes, useState } from 'react';
+import Link from 'next/link';
 import Magnetic from '@/components/shared/atoms/magnetic';
 import { cn } from '@/helpers';
 import Icon from '@/components/shared/atoms/icon';
 
-type SocialItemProps = LinkProps & {
+type SocialItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   name: string;
   size: number;
   bgColor?: string;
 };
 
-const SocialItem = ({
-  size,
-  name,
-  bgColor = 'bg-black',
-  ...props
-}: SocialItemProps) => {
+const SocialItem = ({ size, name, target, href }: SocialItemProps) => {
   const [color, setColor] = useState('#000');
 
   const onHover = () => {
@@ -28,10 +23,6 @@ const SocialItem = ({
     setColor('#000');
   };
 
-  useEffect(() => {
-    console.log(color);
-  }, [color]);
-
   return (
     <Magnetic
       className={cn(
@@ -41,7 +32,8 @@ const SocialItem = ({
       )}
     >
       <Link
-        {...props}
+        href={href ?? '/'}
+        target={target}
         onMouseOver={onHover}
         onMouseLeave={onLeave}
         className={'z-50 text-white'}

@@ -7,7 +7,7 @@ body {
 }
 
 .cursor {
-    @apply fixed w-2 h-2 select-none pointer-events-none rounded-full scale-[0.8] z-[99];
+    @apply fixed w-2 h-2 select-none pointer-events-none rounded-full scale-[0.8] z-[999];
     background: #333;
     transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
@@ -27,7 +27,7 @@ body {
 }
 
 .cursor-follower {
-    @apply fixed w-10 h-10 select-none pointer-events-none translate-x-1 translate-y-1 rounded-[100%] z-[99];
+    @apply fixed w-10 h-10 select-none pointer-events-none translate-x-1 translate-y-1 rounded-[100%] z-[999];
     background: rgba(0, 0, 0, 0.1);
     transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
@@ -59,6 +59,6 @@ section {
     transform: scale(1.5);
 }
 
-._overlay {
-    /*clip-path: polygon(0% 0%, 0% 0%, 0% 100% , 0% 100%);*/
+.trapeze {
+    clip-path: polygon(56% 0, 100% 0, 100% 100%, 0% 100%);
 }
