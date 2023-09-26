@@ -48,9 +48,15 @@ const CustomCursor = ({}: CustomCursorProps) => {
 
     document.addEventListener('mouseover', (e) => {
       const type = e.target?.getAttribute?.('data-type');
+      const hoverText = e.target?.getAttribute?.('data-text');
       if (type === 'link' && !cursor.current?.classList.contains('active')) {
         cursor.current?.classList.add('active');
         cursorFollower.current?.classList.add('active');
+        if (cursorText.current && hoverText) {
+          cursorText.current.innerHTML = hoverText;
+        } else if (cursorText.current) {
+          cursorText.current.innerText = 'View';
+        }
         gsap.to(cursorText.current, {
           opacity: 1,
         });

@@ -18,7 +18,7 @@ const ContactUs = ({}: ContactUsProps) => {
         open={open}
         className={'fixed bottom-8 right-8 z-[150]'}
       />
-      <Sidebar open={open} />
+      <Sidebar open={open} setOpen={setOpen} />
     </>
   );
 };

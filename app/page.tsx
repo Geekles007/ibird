@@ -4,6 +4,7 @@ import Gallery from '@/components/home/organisms/gallery';
 import { fetchData } from '@/helpers';
 import { PER_PAGE, REVALIDATE } from '@/lib/constants';
 import ContactUs from '@/components/home/organisms/contact-us';
+import ScrollTopButton from '@/components/shared/molecules/scroll-top-button';
 
 const { DRIBBBLE_ACCESS_TOKEN } = process.env;
 
@@ -34,6 +35,7 @@ export default async function Home() {
         posts={posts}
         className={'absolute left-1/2 top-28 -translate-x-1/2'}
       />
+      <ScrollTopButton />
     </main>
   );
 }

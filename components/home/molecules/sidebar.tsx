@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 type SidebarProps = HTMLAttributes<HTMLDivElement> & {
   open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const sideAnimation = {
@@ -32,11 +33,17 @@ const trapAnimation = {
   },
 };
 
-const Sidebar = ({ children, className, open, ...props }: SidebarProps) => {
+const Sidebar = ({
+  children,
+  className,
+  open,
+  setOpen,
+  ...props
+}: SidebarProps) => {
   return (
     <div
       className={cn(
-        `fixed inset-0 right-0 z-[100] h-full w-full overflow-hidden bg-transparent transition-all duration-300`,
+        `fixed inset-0 right-0 z-[100] h-full w-full overflow-hidden bg-transparent backdrop-blur-lg transition-all duration-300`,
         open ? 'translate-x-0' : '-translate-x-full',
         className
       )}
@@ -45,6 +52,7 @@ const Sidebar = ({ children, className, open, ...props }: SidebarProps) => {
       <motion.div
         variants={sideAnimation}
         initial={'initial'}
+        onClick={() => setOpen((old) => !old)}
         animate={open ? 'open' : 'close'}
         transition={{
           delay: 0.2,
@@ -80,7 +88,16 @@ const Sidebar = ({ children, className, open, ...props }: SidebarProps) => {
         className='flex h-full flex-col items-end justify-center gap-6 pr-8'
       >
         <h3 className={'text-4xl'}>Cameroon, Bonamoussadi</h3>
-        <h3 className={'text-4xl'}>Tondjilee@gmail.com</h3>
+        <a
+          href={'mailto:ibirdagency@gmail.com'}
+          data-type={'link'}
+          data-text={`<div class='absolute -left-4'>Contact</div>`}
+          className={`relative text-4xl before:absolute before:left-0 before:top-1/2 
+            before:z-10 before:block before:h-1 before:w-0 before:-translate-y-1/2 
+            before:bg-primary before:transition-all before:duration-500 hover:before:w-full`}
+        >
+          ibirdagency@gmail.com
+        </a>
       </motion.div>
     </div>
   );
