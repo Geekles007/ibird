@@ -4,9 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = withBundleAnalyzer({
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ['cdn.dribbble.com'],
   },
