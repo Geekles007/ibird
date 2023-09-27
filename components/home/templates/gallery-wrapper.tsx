@@ -22,7 +22,7 @@ async function getDribbblePosts() {
 }
 
 const GalleryWrapper = async ({}: GalleryWrapperProps) => {
-  // const { posts } = await getDribbblePosts();
+  const { posts } = await getDribbblePosts();
 
   return (
     <>
