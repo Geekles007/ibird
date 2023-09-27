@@ -77,12 +77,12 @@ const CustomCursor = ({}: CustomCursorProps) => {
 
   return (
     <>
-      <div ref={cursor} className='cursor'></div>
-      <div ref={cursorFollower} className='cursor-follower' />
+      <div ref={cursor} className='cursor hidden sm:block'></div>
+      <div ref={cursorFollower} className='cursor-follower hidden sm:block' />
       <div
         ref={cursorText}
         className={
-          'pointer-events-none fixed z-[999] select-none text-lg text-white opacity-0'
+          'pointer-events-none fixed z-[999] hidden select-none text-lg text-white opacity-0 sm:block'
         }
       >
         View

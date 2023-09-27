@@ -66,6 +66,12 @@ section {
     }
 }
 
+@media (max-width: 640px) {
+    body {
+        cursor: pointer;
+    }
+}
+
 ._image {
     filter: blur(15px);
     transform: scale(1.5);
