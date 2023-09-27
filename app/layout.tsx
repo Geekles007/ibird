@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={poppins.className}>
-        {/*<Loader />*/}
+        <Loader />
         {children}
-        {/*<CustomCursor />*/}
+        <CustomCursor />
       </body>
     </html>
   );

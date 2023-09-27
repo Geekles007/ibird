@@ -29,16 +29,16 @@ export default async function Home() {
   return (
     <main className=''>
       hello world
-      {/*<AgencyName />*/}
-      {/*<Socials*/}
-      {/*  className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}*/}
-      {/*/>*/}
-      {/*<ContactUs />*/}
-      {/*<Gallery*/}
-      {/*  posts={posts}*/}
-      {/*  className={'absolute left-1/2 top-28 -translate-x-1/2'}*/}
-      {/*/>*/}
-      {/*<ScrollTopButton />*/}
+      <AgencyName />
+      <Socials
+        className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}
+      />
+      <ContactUs />
+      <Gallery
+        posts={posts}
+        className={'absolute left-1/2 top-28 -translate-x-1/2'}
+      />
+      <ScrollTopButton />
     </main>
   );
 }
