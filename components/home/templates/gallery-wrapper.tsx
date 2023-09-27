@@ -26,10 +26,10 @@ const GalleryWrapper = async ({}: GalleryWrapperProps) => {
 
   return (
     <>
-      <Gallery
-        posts={posts}
-        className={'absolute left-1/2 top-28 -translate-x-1/2'}
-      />
+      {/*<Gallery*/}
+      {/*  posts={posts}*/}
+      {/*  className={'absolute left-1/2 top-28 -translate-x-1/2'}*/}
+      {/*/>*/}
     </>
   );
 };
