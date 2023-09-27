@@ -1,10 +1,18 @@
-import AgencyName from '@/components/shared/atoms/agency-name';
-import Socials from '@/components/home/organisms/socials';
-import Gallery from '@/components/home/organisms/gallery';
 import { fetchData } from '@/helpers';
 import { PER_PAGE, REVALIDATE } from '@/lib/constants';
-import ContactUs from '@/components/home/organisms/contact-us';
-import ScrollTopButton from '@/components/shared/molecules/scroll-top-button';
+import dynamic from 'next/dynamic';
+
+const ContactUs = dynamic(
+  () => import('@/components/home/organisms/contact-us')
+);
+const ScrollTopButton = dynamic(
+  () => import('@/components/shared/molecules/scroll-top-button')
+);
+const AgencyName = dynamic(
+  () => import('@/components/shared/atoms/agency-name')
+);
+const Socials = dynamic(() => import('@/components/home/organisms/socials'));
+const Gallery = dynamic(() => import('@/components/home/organisms/gallery'));
 
 const { DRIBBBLE_ACCESS_TOKEN } = process.env;
 
@@ -28,7 +36,6 @@ export default async function Home() {
 
   return (
     <main className=''>
-      hello world
       <AgencyName />
       <Socials
         className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}
