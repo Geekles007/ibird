@@ -6,13 +6,7 @@ type GalleryWrapperProps = {};
 
 const { DRIBBBLE_ACCESS_TOKEN } = process.env;
 
-// async function getDribbblePosts() {
-//   const posts: any[] =
-//
-//   return { posts };
-// }
-
-const GalleryWrapper = async ({}: GalleryWrapperProps) => {
+async function getDribbblePosts() {
   const posts: any[] = await fetchData(
     `https://api.dribbble.com/v2/user/shots?access_token=${DRIBBBLE_ACCESS_TOKEN}&page=${1}&per_page=${PER_PAGE}`,
     {
@@ -24,10 +18,16 @@ const GalleryWrapper = async ({}: GalleryWrapperProps) => {
     }
   );
 
+  return { posts };
+}
+
+const GalleryWrapper = async ({}: GalleryWrapperProps) => {
+  // const { posts } = await getDribbblePosts();
+
   return (
     <>
       <Gallery
-        posts={posts}
+        posts={[]}
         className={'absolute left-1/2 top-28 -translate-x-1/2'}
       />
     </>
