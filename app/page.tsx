@@ -19,14 +19,14 @@ export default async function Home() {
   return (
     <main className=''>
       <AgencyName />
-      {/*<Socials*/}
-      {/*  className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}*/}
-      {/*/>*/}
-      {/*<ContactUs />*/}
+      <Socials
+        className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}
+      />
+      <ContactUs />
       {/*<Suspense fallback={<>Loading</>}>*/}
       {/*  <GalleryWrapper />*/}
       {/*</Suspense>*/}
-      {/*<ScrollTopButton />*/}
+      <ScrollTopButton />
     </main>
   );
 }
