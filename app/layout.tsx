@@ -1,8 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import Loader from '@/components/shared/atoms/loader';
-import CustomCursor from '@/components/shared/atoms/custom-cursor';
+import dynamic from 'next/dynamic';
+const Loader = dynamic(() => import('@/components/shared/atoms/loader'));
+const CustomCursor = dynamic(
+  () => import('@/components/shared/atoms/custom-cursor')
+);
 
 const poppins = Poppins({
   subsets: ['latin'],

@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const ContactUs = dynamic(
   () => import('@/components/home/organisms/contact-us')
@@ -22,7 +23,9 @@ export default async function Home() {
         className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}
       />
       <ContactUs />
-      <GalleryWrapper />
+      <Suspense fallback={<>Loading</>}>
+        <GalleryWrapper />
+      </Suspense>
       <ScrollTopButton />
     </main>
   );
