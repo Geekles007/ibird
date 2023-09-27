@@ -25,7 +25,9 @@ const CardImage = ({ className, item }: CardImageProps) => {
         {item?.title}
       </strong>
       <div
-        className={cn(`h-[550px] overflow-hidden max-xl:flex-1 xl:w-[500px]`)}
+        className={cn(
+          `h-[450px] overflow-hidden max-xl:flex-1 sm:h-[550px] xl:w-[500px]`
+        )}
       >
         <Link
           href={item?.html_url}

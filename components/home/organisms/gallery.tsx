@@ -77,8 +77,8 @@ const Gallery = ({ className, posts }: GalleryProps) => {
       initial={'initial'}
       animate={ready ? 'enter' : 'closed'}
       className={cn(
-        `list absolute flex w-11/12 max-w-screen-xl gap-y-[150px] pb-[170px]
-         max-md:flex-col md:flex-wrap md:justify-between`,
+        `list absolute flex w-11/12 max-w-screen-xl gap-y-[75px] pb-[170px] max-md:flex-col
+         md:flex-wrap md:justify-between md:gap-y-[150px]`,
         className
       )}
     >

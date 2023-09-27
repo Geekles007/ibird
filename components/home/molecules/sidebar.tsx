@@ -101,7 +101,7 @@ const Sidebar = ({
         >
           ibirdagency@gmail.com
         </a>
-        <Socials className={'fixed bottom-8 left-8 z-[99]'} />
+        <Socials className={'fixed bottom-8 left-8 z-[99] flex md:hidden'} />
       </motion.div>
     </div>
   );
