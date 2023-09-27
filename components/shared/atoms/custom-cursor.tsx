@@ -47,8 +47,8 @@ const CustomCursor = ({}: CustomCursorProps) => {
     });
 
     document.addEventListener('mouseover', (e) => {
-      const type = e.target?.getAttribute?.('data-type');
-      const hoverText = e.target?.getAttribute?.('data-text');
+      const type = (e.target as HTMLElement)?.getAttribute?.('data-type');
+      const hoverText = (e.target as HTMLElement)?.getAttribute?.('data-text');
       if (type === 'link' && !cursor.current?.classList.contains('active')) {
         cursor.current?.classList.add('active');
         cursorFollower.current?.classList.add('active');
@@ -62,7 +62,7 @@ const CustomCursor = ({}: CustomCursorProps) => {
         });
 
         e.target?.addEventListener('mouseleave', (e) => {
-          const type = e.target?.getAttribute?.('data-type');
+          const type = (e.target as HTMLElement)?.getAttribute?.('data-type');
           if (type === 'link' && cursor.current?.classList.contains('active')) {
             cursor.current?.classList.remove('active');
             cursorFollower.current?.classList.remove('active');
