@@ -15,6 +15,27 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'iBIRD design',
   description: `'iBIRD DESIGN's website - Let us make it great and amaze you'`,
+  authors: [
+    {
+      name: 'TONDJI NIAT J. Lee',
+      url: 'http://www.ebirly.com',
+    },
+  ],
+  keywords: [
+    'creative',
+    'design',
+    'react',
+    'developer',
+    'typescript',
+    'portofolio',
+    'resume',
+    'designer',
+    'passionated',
+  ],
+  viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
