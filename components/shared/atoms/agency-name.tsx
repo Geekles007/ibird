@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -11,7 +11,22 @@ const AgencyName = ({}: AgencyNameProps) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const secondTextRef = useRef<HTMLDivElement>(null);
   const directionRef = useRef<number>(-1);
-  let xPercent = 0;
+  const xPercentRef = useRef<number>(0);
+
+  const animation = useCallback(() => {
+    if (xPercentRef.current <= -100) {
+      xPercentRef.current = 0;
+    }
+    if (xPercentRef.current > 0) {
+      xPercentRef.current = -100;
+    }
+    gsap.set(firstTextRef.current, { xPercent: xPercentRef.current });
+    gsap.set(secondTextRef.current, { xPercent: xPercentRef.current });
+    if (directionRef.current !== null) {
+      xPercentRef.current += 0.1 * directionRef.current;
+    }
+    requestAnimationFrame(animation);
+  }, []);
 
   useEffect(() => {
     const body = document.body,
@@ -37,22 +52,7 @@ const AgencyName = ({}: AgencyNameProps) => {
       x: '-500px',
     });
     requestAnimationFrame(animation);
-  }, []);
-
-  const animation = () => {
-    if (xPercent <= -100) {
-      xPercent = 0;
-    }
-    if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstTextRef.current, { xPercent: xPercent });
-    gsap.set(secondTextRef.current, { xPercent: xPercent });
-    if (directionRef.current !== null) {
-      xPercent += 0.1 * directionRef.current;
-    }
-    requestAnimationFrame(animation);
-  };
+  }, [animation]);
 
   return (
     <div className='fixed left-0 top-1/2 -translate-y-1/2'>
