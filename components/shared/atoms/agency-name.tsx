@@ -10,8 +10,8 @@ const AgencyName = ({}: AgencyNameProps) => {
   const firstTextRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const secondTextRef = useRef<HTMLDivElement>(null);
+  const directionRef = useRef<number>(-1);
   let xPercent = 0;
-  let direction = -1;
 
   useEffect(() => {
     const body = document.body,
@@ -32,7 +32,7 @@ const AgencyName = ({}: AgencyNameProps) => {
         scrub: 0.5,
         start: 0,
         end: height,
-        onUpdate: (e) => (direction = e.direction * -1),
+        onUpdate: (e) => (directionRef.current = e.direction * -1),
       },
       x: '-500px',
     });
@@ -48,7 +48,9 @@ const AgencyName = ({}: AgencyNameProps) => {
     }
     gsap.set(firstTextRef.current, { xPercent: xPercent });
     gsap.set(secondTextRef.current, { xPercent: xPercent });
-    xPercent += 0.1 * direction;
+    if (directionRef.current !== null) {
+      xPercent += 0.1 * directionRef.current;
+    }
     requestAnimationFrame(animation);
   };
 
