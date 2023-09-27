@@ -54,9 +54,28 @@ section {
     writing-mode: vertical-lr;
 }
 
+@media(max-width: 1028px) {
+    .list strong {
+        writing-mode: horizontal-tb;
+    }
+}
+
+@media(max-width: 768px) {
+    .card:nth-child(even) {
+        @apply translate-y-0;
+    }
+}
+
 ._image {
     filter: blur(15px);
     transform: scale(1.5);
+}
+
+@media(max-width: 425px) {
+    ._image {
+        filter: blur(0);
+        transform: scale(1.5);
+    }
 }
 
 .trapeze {

@@ -3,6 +3,7 @@
 import React, { HTMLAttributes } from 'react';
 import { cn } from '@/helpers';
 import { motion } from 'framer-motion';
+import Socials from '@/components/home/organisms/socials';
 
 type SidebarProps = HTMLAttributes<HTMLDivElement> & {
   open: boolean;
@@ -62,7 +63,7 @@ const Sidebar = ({
           mass: 0.5,
           ease: [0.61, 1, 0.88, 1],
         }}
-        className='absolute inset-0 bg-black/[.2]'
+        className='absolute inset-0 bg-white/[.2]'
       ></motion.div>
       <motion.div
         variants={trapAnimation}
@@ -85,19 +86,22 @@ const Sidebar = ({
         initial={'initial'}
         animate={open ? 'open' : 'close'}
         transition={{ delay: 0.8 }}
-        className='flex h-full flex-col items-end justify-center gap-6 pr-8'
+        className='flex h-full flex-col items-end justify-center gap-6 text-center xs:pr-8'
       >
-        <h3 className={'text-4xl'}>Cameroon, Bonamoussadi</h3>
+        <h3 className={'text-xl max-xs:w-full max-xs:text-center sm:text-4xl'}>
+          Cameroon, Bonamoussadi
+        </h3>
         <a
           href={'mailto:ibirdagency@gmail.com'}
           data-type={'link'}
           data-text={`<div class='absolute -left-4'>Contact</div>`}
-          className={`relative text-4xl before:absolute before:left-0 before:top-1/2 
-            before:z-10 before:block before:h-1 before:w-0 before:-translate-y-1/2 
-            before:bg-primary before:transition-all before:duration-500 hover:before:w-full`}
+          className={`relative text-2xl before:absolute before:left-0 before:top-1/2 before:z-10 before:block before:h-1 
+            before:w-0 before:-translate-y-1/2 before:bg-primary before:transition-all before:duration-500 
+            hover:before:w-full max-xs:w-full max-xs:text-center sm:text-4xl`}
         >
           ibirdagency@gmail.com
         </a>
+        <Socials className={'fixed bottom-8 left-8 z-[99]'} />
       </motion.div>
     </div>
   );

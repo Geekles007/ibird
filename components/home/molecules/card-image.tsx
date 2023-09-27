@@ -11,15 +11,22 @@ type CardImageProps = Pick<HTMLAttributes<HTMLDivElement>, 'className'> & {
 
 const CardImage = ({ className, item }: CardImageProps) => {
   return (
-    <div className={cn('relative flex', className)}>
+    <div
+      className={cn(
+        'relative flex h-auto max-xl:w-2/5 max-md:w-full',
+        className
+      )}
+    >
       <strong
         className={
-          'absolute -left-12 bg-gray-800 px-2 py-4 text-2xl text-white'
+          'absolute z-10 bg-gray-800 px-2 py-4 text-2xl text-white max-lg:top-0 lg:-left-12'
         }
       >
         {item?.title}
       </strong>
-      <div className={cn(`h-[550px] w-[500px] overflow-hidden`)}>
+      <div
+        className={cn(`h-[550px] overflow-hidden max-xl:flex-1 xl:w-[500px]`)}
+      >
         <Link
           href={item?.html_url}
           data-type={'link'}
