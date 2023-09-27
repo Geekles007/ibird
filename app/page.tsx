@@ -33,10 +33,10 @@ export default async function Home() {
         className={'fixed bottom-8 left-8 z-[99] hidden gap-8 md:flex'}
       />
       <ContactUs />
-      <Gallery
-        posts={posts}
-        className={'absolute left-1/2 top-28 -translate-x-1/2'}
-      />
+      {/*<Gallery*/}
+      {/*  posts={posts}*/}
+      {/*  className={'absolute left-1/2 top-28 -translate-x-1/2'}*/}
+      {/*/>*/}
       <ScrollTopButton />
     </main>
   );
