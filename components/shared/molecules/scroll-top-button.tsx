@@ -50,7 +50,7 @@ const ScrollTopButton = ({}: ScrollTopButtonProps) => {
       initial={'initial'}
       animate={isVisible ? 'show' : 'hide'}
       className={
-        'z-700 fixed bottom-12 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-0 bg-primary p-0.5 text-black hover:bg-primary'
+        'z-700 fixed bottom-12 left-8 flex h-12 w-12 items-center justify-center rounded-full border-0 bg-primary p-0.5 text-black hover:bg-primary sm:left-1/2 sm:-translate-x-1/2'
       }
       onClick={scrollToTop}
     >

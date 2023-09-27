@@ -13,6 +13,9 @@ const config: Config = {
       primary: '#FBD708',
     },
     extend: {
+      screens: {
+        xs: '425px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

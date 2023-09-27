@@ -57,7 +57,7 @@ const containerAnimation = {
     },
   },
   closed: {
-    height: '17vh',
+    height: '150px',
     transition: {
       delay: 1.2,
       duration: 0.8,
@@ -110,7 +110,7 @@ const Loader = ({}: LoaderProps) => {
       initial={'initial'}
       ref={ref}
       animate={ready ? 'closed' : 'enter'}
-      className={`fixed inset-0 z-[500] flex h-screen w-full flex-col 
+      className={`fixed inset-0 z-[500] flex h-[100dvh] w-full flex-col 
         items-center justify-center gap-2 overflow-hidden`}
     >
       <motion.div
@@ -129,14 +129,16 @@ const Loader = ({}: LoaderProps) => {
           width={50}
           height={50}
           alt={'Ibird logo'}
-          className={'logo z-10'}
+          className={'logo z-10 max-md:mt-32'}
         />
       </motion.div>
       <motion.span
         variants={animationText}
         initial={'initial'}
         animate={ready ? 'closed' : 'enter'}
-        className={'texting z-10 text-5xl font-bold'}
+        className={
+          'texting z-10 text-center text-3xl font-bold xs:text-4xl sm:text-5xl'
+        }
       >
         iBIRD DESIGN AGENCY
       </motion.span>
@@ -144,7 +146,9 @@ const Loader = ({}: LoaderProps) => {
         variants={animationText}
         initial={'initial'}
         animate={ready ? 'closed' : 'enter'}
-        className={'texting z-10 text-xl font-light'}
+        className={
+          'texting z-10 text-center text-sm font-light xs:text-lg sm:text-xl'
+        }
       >
         Let us make it great and amaze you !
       </motion.p>
