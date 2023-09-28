@@ -4,8 +4,7 @@ import Gallery from '@/components/home/organisms/gallery';
 
 type GalleryWrapperProps = {};
 
-const DRIBBBLE_ACCESS_TOKEN =
-  '93d8b16917dc736dcf02290f7584af65edcf924338109c4adb6ceb7ecd192265';
+const { DRIBBBLE_ACCESS_TOKEN } = process.env;
 
 async function getDribbblePosts() {
   const posts: any[] = await fetchData(
