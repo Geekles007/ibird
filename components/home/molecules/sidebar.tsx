@@ -89,7 +89,7 @@ const Sidebar = ({
         className='flex h-full flex-col items-end justify-center gap-6 text-center xs:pr-8'
       >
         <h3 className={'text-xl max-xs:w-full max-xs:text-center sm:text-4xl'}>
-          Cameroon, Bonamoussadi
+          Belgium, Brussels
         </h3>
         <a
           href={'mailto:ibirdagency@gmail.com'}
