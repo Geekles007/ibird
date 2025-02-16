@@ -2,7 +2,7 @@ name: IBIRD AGENCY WORKFLOW
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   id-token: write
