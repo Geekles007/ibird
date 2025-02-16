@@ -7,14 +7,11 @@ export function cn(...inputs: ClassValue[]) {
 
 export async function fetchData<T>(
   url: string,
-  { method, body, headers }: RequestInit
+  options: RequestInit & { next?: { revalidate?: number } } = {}
 ): Promise<T> {
   try {
     const response = await fetch(url, {
-      method,
-      ...headers,
-      body,
-      cache: 'no-cache',
+      ...options,
     });
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
