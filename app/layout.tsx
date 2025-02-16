@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+// import { Poppins } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 const Loader = dynamic(() => import('@/components/shared/atoms/loader'));
@@ -8,10 +8,12 @@ const CustomCursor = dynamic(
   () => import('@/components/shared/atoms/custom-cursor')
 );
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '400', '500'],
-});
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   weight: ['300'],
+//   display: 'swap',
+//   preload: true,
+// });
 
 export const metadata: Metadata = {
   title: 'iBIRD design',
@@ -49,7 +51,7 @@ export default function RootLayout({
       <Head>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <body className={poppins.className}>
+      <body>
         <Loader />
         {children}
         <CustomCursor />

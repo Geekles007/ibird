@@ -4,8 +4,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = withBundleAnalyzer({
+  reactStrictMode: true,
   output: 'export',
-  distDir: 'out',
   images: {
     domains: ['cdn.dribbble.com'],
     unoptimized: true,
