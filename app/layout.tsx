@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 // import { Poppins } from 'next/font/google';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+
 const Loader = dynamic(() => import('@/components/shared/atoms/loader'));
 const CustomCursor = dynamic(
   () => import('@/components/shared/atoms/custom-cursor')
@@ -36,9 +36,6 @@ export const metadata: Metadata = {
     'passionated',
   ],
   viewport: 'width=device-width, initial-scale=1',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
@@ -48,9 +45,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <Head>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <body>
         <Loader />
         {children}
