@@ -45,6 +45,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: /domains/tnjl.me/public_html/ibirdagency
+          server-dir: /domains/tnjl.me/public_html/ibirdagency/
           dangerous-clean-slate: false
           log-level: verbose
