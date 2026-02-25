@@ -1,11 +1,11 @@
-name: IBIRD AGENCY WORKFLOW
+name: IBRID AGENCY PORTFOLIO
+
 on:
   push:
     branches:
       - main
 
 permissions:
-  id-token: write
   contents: read
 
 jobs:
@@ -31,15 +31,20 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: List build output
+        run: |
+          echo "Contents of ./out directory:"
+          ls -la ./out
+          echo "Total files to deploy:"
+          find ./out -type f | wc -l
+
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-      - name: Deploy to S3
-        run: aws s3 sync ./out s3://ibirdagency
-
-      - name: Invalidate CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /domains/tnjl.me/public_html/ibirdagency
+          dangerous-clean-slate: false
+          log-level: verbose
